@@ -1,0 +1,247 @@
+[ {
+    "id": "total_area",
+    "text": "Hvor stort er arealet? (totalt areal målt i kvadratmeter)",
+    "type": "number",
+    "min": 1,
+    "max": 1000000,
+    "category": "environment",
+    "ignore_from_total": true
+  },
+  {
+    "text": "Hvor mange idretter kan benytte seg av anlegget?",
+    "min": 1,
+    "max": 50,
+    "type": "number",
+    "category": "economic",
+    "scoring": [
+      { "condition": ">", "value": 25, "score": 5 },
+      { "condition": ">", "value": 20, "score": 4 },
+      { "condition": ">", "value": 10, "score": 3 },
+      { "condition": ">", "value": 5, "score": 2},
+      { "condition": "else", "score": 1 }
+    ]
+  },
+  {
+    "text": "Hvor mange timer brukes anlegget per døgn?",
+    "min": 1,
+    "max": 24,
+    "type": "number",
+    "category": "economic",
+    "scoring": [
+      { "condition": ">", "value": 19.2, "score": 5 },
+      { "condition": ">", "value": 14.4, "score": 4 },
+      { "condition": ">", "value": 9.6, "score": 3 },
+      { "condition": ">", "value": 4.8, "score": 2 },
+      { "condition": "else", "score": 1 }
+    ]
+  },
+  {
+    "text": "Hvor mange ulike personer bruker anlegget per døgn?",
+    "min": 0,
+    "max": 10000,
+    "type": "number",
+    "category": "economic",
+    "scoring": [
+      { "condition": ">", "value": 1000, "score": 5 },
+      { "condition": ">", "value": 500, "score": 4 },
+      { "condition": ">", "value": 200, "score": 3 },
+      { "condition": ">", "value": 50, "score": 2},
+      { "condition": "else", "score": 1 }
+    ]
+  },
+  {
+    "id": "revenue",
+    "text": "Hva er driftsinntektene per år?",
+    "type": "number",
+    "min": 1,
+    "max": 1000000,
+    "category": "economic",
+    "ignore_from_total": true
+  },
+  {
+    "id": "costs",
+    "text": "Hva er driftskostnadene per år?",
+    "type": "number",
+    "min": 1,
+    "max": 1000000,
+    "category": "economic",
+    "ignore_from_total": true
+  },
+  {
+    "id": "total_revenue",
+    "text": "Hva er totalinntekter (inkl. sponsor og annen støtte)?",
+    "type": "number",
+    "min": 1,
+    "max": 1000000,
+    "category": "economic",
+    "ignore_from_total": true
+  },
+  {
+    "id": "total_costs",
+    "text": "Hva er totale kostnader?",
+    "type": "number",
+    "min": 1,
+    "max": 1000000, 
+    "category": "economic",
+    "ignore_from_total": true
+  },
+  {
+    "text": "Representerer brukerne befolkningssammensetningen i nærmiljøet? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "social",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Kun få eller spesifikke grupper bruker anlegget",
+        "5": "Aktiv deltakelse fra alle kjønn, alder og etnisk bakgrunn"
+    }
+  },
+  {
+    "text": "Er det mulig å bruke anlegget uten høy personlig kostnad? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "social",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Dyrt medlemsskap og høye utgifter for utstyrsleie",
+        "5": "Gratis tilgang til deler av anlegget, utstyrssentral i nærheten, og lave/ingen treningsavgifter"
+    }
+  },
+  {
+    "text": "Kan alle bruke anlegget uavhengig av funksjonsevne? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "social",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Oppfyller knapt lovpålagte minimumskrav",
+        "5": "Overskrider krav. Trinnfri adkomst overalt, blindeskrift-skilt, teleslynger og tilrettelagt utstyr for paraidrett"
+    }
+  },
+  {
+    "text": "Føler brukerne seg trygge fysisk og psykososialt? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "social",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Mørkt, uoversiktlig, manglende rutiner for politiattester/varsling",
+        "5": "God belysning, åpent innsyn, 100% kontroll på politiattester, og synlige vakter"
+    }
+  },
+  {
+    "text": "Fungerer anlegget som en sosial møteplass utover selve idretten? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "social",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Lukket anlegg som kun åpnes for trening/kamp",
+        "5": "Sosiale soner, samarbeid med skoler/eldresenter, og høy grad av medvirkning fra lokalbefolkningen samt. Åpent anlegg for trening/kamp"
+    }
+  },
+  {
+    "text": "Er adgang til anlegget gratis for ledsagere? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "social",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Anlegget krever full pris for ledsager",
+        "5": "Anlegget er helt gratis for ledsager"
+    }
+  },
+  {
+    "text": "Er anlegget nært sentrum? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "environment",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Anlegget ligger langt utenfor bykjerne, f.eks. 10km",
+        "5": "Anlegget ligger i sentrum av en by"
+    }
+  },
+  {
+    "text": "Hvor stort inngrep skal gjøres i naturen? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "environment",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Skog må fjernes, bekker må dreneres om, gangveier til dyreliv må bygges og legges om",
+        "5": "Ingen inngrep, bygging skal gjøres på gammelt nærings/bolig areal"
+    }
+  },
+  {
+    "text": "Hva er avstanden til nærmeste kollektiv stopp? (antall meter)",
+    "min": 1,
+    "max": 100000,
+    "type": "number",
+    "category": "environment",
+    "scoring": [
+      { "condition": ">", "value": 2000, "score": 1 },
+      { "condition": ">", "value": 1000, "score": 2 },
+      { "condition": ">", "value": 600, "score": 3 },
+      { "condition": ">", "value": 400, "score": 4 },
+      { "condition": "else", "score": 5 }
+    ],
+    "source_used":"https://miljopakken.no/nyheter/superbuss-se-47-byggeklare-prosjekter"
+  },
+  {
+    "text": "Hvor mange avganger er det i timen fra nærmeste kollektivtilbud, i hverdager?",
+    "min": 0,
+    "max": 60,
+    "type": "number",
+    "category": "environment",
+    "scoring": [
+      { "condition": ">=", "value": 6, "score": 5 },
+      { "condition": ">=", "value": 4, "score": 4 },
+      { "condition": ">=", "value": 3, "score": 3 },
+      { "condition": ">=", "value": 1, "score": 2 },
+      { "condition": "else", "score": 1 }
+    ],
+    "source_used": "https://www.atb.no/forside/aktuelt/mange-nye-avgang-og-bedre-plass"
+  },
+  {
+    "text": "Er det tilegnet sykkelparkering på anlegget?",
+    "category": "environment",
+    "type": "multiple",
+    "options": ["Nei", "Ja"],
+    "scoring": [
+      { "option": "Nei", "score": 1 },
+      { "option": "Ja", "score": 5 }
+    ]
+  },
+  {
+    "text": "Hva er energiklassen for anlegget?",
+    "category": "environment",
+    "type": "multiple",
+    "options": ["A", "B", "C", "D", "E", "F", "G"],
+    "scoring": [
+      { "option": "A", "score": 5 },
+      { "option": "B", "score": 4.33 },
+      { "option": "C", "score": 3.67 },
+      { "option": "D", "score": 3 },
+      { "option": "E", "score": 2.33 },
+      { "option": "F", "score": 1.67 },
+      { "option": "G", "score": 1 }
+    ]
+  }
+]
