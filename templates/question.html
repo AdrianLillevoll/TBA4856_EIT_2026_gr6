@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spørsmål {{ step }}
+{% endblock %}
+
+{% block content %}
+<h2>Spørsmål {{ step }}</h2>
+<p>{{ question.text }}</p>
+
+{% if question.labels %}
+<div style="margin:10px 0; font-size: 14px; color: #ddd;">
+    {% for key, label in question.labels.items() %}
+        <div>{{ key }}: {{ label }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post">
+    {% if qtype == "number" %}
+        <input type="number"
+               name="score"
+               min="{{ question.min }}"
+               max="{{ question.max }}"
+               step="1"
+               required
+               autofocus>
+        <br><br>
+        <button type="submit">Neste</button>
+
+    {% elif qtype == "yesno" %}
+        <div style="display:flex; gap:10px; justify-content:center; margin:10px 0;">
+            <button type="submit" name="score" value="1">Ja</button>
+            <button type="submit" name="score" value="0">Nei</button>
+        </div>
+
+    {% elif qtype == "multiple" %}
+        <div style="display:flex; flex-direction:column; gap:10px;">
+            {% for i in range(question.options|length) %}
+                <button type="submit" name="score" value="{{ question.options[i] }}">
+                    {{ question.options[i] }}
+                </button>
+            {% endfor %}
+        </div>
+    {% endif %}
+</form>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}App{% endblock %}</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        input[type=number] {
+            padding: 8px;
+            width: 80px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+    window.onload = function() {
+        const firstInput = document.querySelector('.container input');
+        if (firstInput) {
+            firstInput.focus();
+            firstInput.select();
+        }
+    };
+    </script>
+</body>
+</html>
