@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Resultat{% endblock %}
+
+{% block content %}
+<h2>Resultat</h2>
+
+{% set name_map = {
+    "economic": "Økonomi",
+    "environment": "Miljø",
+    "social": "Sosial"
+} %}
+
+<div style="margin-top: 20px;">
+
+    {% for category, value in averages.items() %}
+        <p style="margin: 10px 0;">
+            <strong>{{ name_map.get(category, category) }}:</strong> {{ value }}
+        </p>
+    {% endfor %}
+
+    <h3 style="margin-top: 20px;">
+        Total score: {{ total }}
+    </h3>
+
+    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="{{ url_for('weights') }}">
+            <button>Endre vekting</button>
+        </a>
+
+        <a href="{{ url_for('question', reset=1) }}">
+            <button>Start på nytt</button>
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
