@@ -38,7 +38,7 @@
   {
     "text": "Hvor mange ulike personer bruker anlegget per døgn?",
     "min": 0,
-    "max": 10000,
+    "max": 100000,
     "type": "number",
     "category": "economic",
     "scoring": [
@@ -53,7 +53,7 @@
     "id": "revenue",
     "text": "Hva er driftsinntektene per år?",
     "type": "number",
-    "min": 1,
+    "min": 0,
     "max": 1000000,
     "category": "economic",
     "ignore_from_total": true
@@ -62,7 +62,7 @@
     "id": "costs",
     "text": "Hva er driftskostnadene per år?",
     "type": "number",
-    "min": 1,
+    "min": 0,
     "max": 1000000,
     "category": "economic",
     "ignore_from_total": true
@@ -71,7 +71,7 @@
     "id": "total_revenue",
     "text": "Hva er totalinntekter (inkl. sponsor og annen støtte)?",
     "type": "number",
-    "min": 1,
+    "min": 0,
     "max": 1000000,
     "category": "economic",
     "ignore_from_total": true
@@ -80,7 +80,7 @@
     "id": "total_costs",
     "text": "Hva er totale kostnader?",
     "type": "number",
-    "min": 1,
+    "min": 0,
     "max": 1000000, 
     "category": "economic",
     "ignore_from_total": true
@@ -243,5 +243,58 @@
       { "option": "F", "score": 1.67 },
       { "option": "G", "score": 1 }
     ]
+  },
+  {
+    "id": "electricity_usage",
+    "text": "Hvor mange kWh skal anlegget bruke per år?",
+    "type": "number",
+    "min": 0,
+    "max": 1000000,
+    "category": "environment",
+    "ignore_from_total": true
+  },
+  {
+    "text": "Produserer anlegget noe strøm?",
+    "category": "environment",
+    "type": "yesno",
+    "scoring": [
+      { "condition": "direct" }
+    ],
+    "ignore_from_total": true,
+    "follow_up": [
+      {
+        "id": "electricity_production",
+        "text": "Hvor mange kWh strøm produserer anlegget?",
+        "min": 0,
+        "max": 1000000,
+        "category": "environment",
+        "ignore_from_total": true,
+        "scoring": [
+          { "condition": "direct" }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Er det tilrettelagt for kildesortering på anlegget? (1 til 5)",
+    "min": 1,
+    "max": 5,
+    "type": "number",
+    "category": "environment",
+    "scoring": [
+      { "condition": "direct" }
+    ],"labels": {
+        "1": "Det er enkelte søppeldunker der alt går i restavfall",
+        "5": "Det er egne dunker til papp, flaskepant, glass/metall, restavfall osv."
+    }
+  },
+  {
+    "id": "co2_equivalents",
+    "text": "Hvor mange tonn CO2 ekvivalenter slippes ut hvert år?",
+    "type": "number",
+    "min": 0,
+    "max": 1000000,
+    "category": "environment",
+    "ignore_from_total": true
   }
 ]
