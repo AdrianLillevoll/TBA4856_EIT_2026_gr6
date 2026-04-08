@@ -19,7 +19,7 @@ formulas = [
         "func": lambda scores: (
             (scores.get("electricity_usage", 0) - scores.get("electricity_production", 0)) / max(scores.get("total_area", 1), 1)
             if scores.get("electricity_production") is not None 
-            else scores.get("electricity_usage", 0)
+            else scores.get("electricity_usage", 0) / max(scores.get("total_area", 1), 1)
         ),
         "scale": [(400, float('inf'),1), (300,400,2), (200,300,3), (150,200,4), (float('-inf'),150,5)]
         # min_value < value <= max_value
