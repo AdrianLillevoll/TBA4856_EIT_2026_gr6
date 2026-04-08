@@ -245,11 +245,21 @@
     ]
   },
   {
+    "text": "Skal anlegget ha Breeam sertifisering?",
+    "category": "environment",
+    "type": "multiple",
+    "options": ["Nei", "Ja"],
+    "scoring": [
+      { "option": "Nei", "score": 0 },
+      { "option": "Ja", "score": 5 }
+    ]
+  },
+  {
     "id": "electricity_usage",
     "text": "Hvor mange kWh skal anlegget bruke per år?",
     "type": "number",
     "min": 0,
-    "max": 1000000,
+    "max": 10000000,
     "category": "environment",
     "ignore_from_total": true
   },
@@ -266,7 +276,7 @@
         "id": "electricity_production",
         "text": "Hvor mange kWh strøm produserer anlegget?",
         "min": 0,
-        "max": 1000000,
+        "max": 10000000,
         "category": "environment",
         "ignore_from_total": true,
         "scoring": [

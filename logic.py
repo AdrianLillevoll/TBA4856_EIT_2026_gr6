@@ -120,6 +120,9 @@ def calculate_results(questions, scores, weights=None):
         except:
             score_val = 0
 
+        if score_val == 0:
+            continue
+
         totals[cat] = totals.get(cat, 0) + score_val
         counts[cat] = counts.get(cat, 0) + 1
 
