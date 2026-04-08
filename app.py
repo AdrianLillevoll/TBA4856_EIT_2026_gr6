@@ -3,18 +3,23 @@ import json
 from logic import *
 from formulas import *
 import os 
+import copy
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 with open("questions.json", "r", encoding="utf-8") as f:
-    questions = json.load(f)
+    original_questions = json.load(f)
+
+questions = copy.deepcopy(original_questions)
 
 @app.route("/", methods=["GET", "POST"])
 def question():
 
     if request.args.get("reset") == "1":
         session.clear()
+        global questions 
+        questions = copy.deepcopy(original_questions)
         return redirect(url_for("question"))
 
     if "index" not in session:

@@ -10,7 +10,10 @@ def normalize_weights(weights):
 
 
 def parse_value(value, qtype):
-    if qtype in CHOICE_TYPES:
+    if qtype == "yesno":
+        return str(value) == "1"
+    
+    if qtype == "multiple":
         return value
     try:
         return float(value)
