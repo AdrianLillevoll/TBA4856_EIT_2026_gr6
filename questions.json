@@ -54,7 +54,7 @@
     "text": "Hva er driftsinntektene per år?",
     "type": "number",
     "min": 0,
-    "max": 1000000,
+    "max": 10000000000,
     "category": "economic",
     "ignore_from_total": true
   },
@@ -63,7 +63,7 @@
     "text": "Hva er driftskostnadene per år?",
     "type": "number",
     "min": 0,
-    "max": 1000000,
+    "max": 10000000000,
     "category": "economic",
     "ignore_from_total": true
   },
@@ -72,7 +72,7 @@
     "text": "Hva er totalinntekter (inkl. sponsor og annen støtte)?",
     "type": "number",
     "min": 0,
-    "max": 1000000,
+    "max": 10000000000,
     "category": "economic",
     "ignore_from_total": true
   },
@@ -81,7 +81,7 @@
     "text": "Hva er totale kostnader?",
     "type": "number",
     "min": 0,
-    "max": 1000000, 
+    "max": 10000000000, 
     "category": "economic",
     "ignore_from_total": true
   },
