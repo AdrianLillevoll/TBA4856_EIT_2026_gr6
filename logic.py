@@ -2,13 +2,14 @@ from formulas import formulas
 
 CHOICE_TYPES = {"multiple", "yesno"}
 
+# Normalizes weights to sum to 1
 def normalize_weights(weights):
     total = sum(weights.values())
     if total == 0:
         return weights
     return {k: v / total for k, v in weights.items()}
 
-
+# Convert raw input to correct data type 
 def parse_value(value, qtype):
     if qtype == "yesno":
         return str(value) == "1"
@@ -20,28 +21,31 @@ def parse_value(value, qtype):
     except:
         return 0.0
 
-
+# Calculates score based on numeric scale 
 def score_from_scale(value, scale):
     for min_val, max_val, score in scale:
         if min_val < value <= max_val:
             return float(score)
     return 1
 
-
+# Calculates score based on defined answer options
 def score_from_options(value, scoring_rules):
     for rule in scoring_rules or []:
         if str(rule.get("option")).upper() == str(value).upper():
             return float(rule.get("score", 0))
     return 0
 
-
+# Calculates score based on conditional rules 
 def score_from_rules(value, scoring_rules):
     for rule in scoring_rules:
         cond = rule.get("condition")
         limit = rule.get("value")
 
+        # If rule is direct 
         if cond == "direct":
             return int(value)
+        
+        # Comparison-based rules
         if cond == ">" and value > limit:
             return rule.get("score", 0)
         if cond == ">=" and value >= limit:
@@ -57,7 +61,7 @@ def score_from_rules(value, scoring_rules):
 
     return 0
 
-
+# Main function to calculate score from input 
 def calculate_score(value, scoring_rules=None, qtype=None, scale=None):
 
     if scale:
@@ -74,7 +78,7 @@ def calculate_score(value, scoring_rules=None, qtype=None, scale=None):
 
     return score_from_rules(value, scoring_rules)
 
-
+# Function to calculate score if extra formula is provided 
 def apply_derived(score_lookup, formulas):
     results = []
 
@@ -101,7 +105,7 @@ def apply_derived(score_lookup, formulas):
 
     return results
 
-
+# Calculate final results, with averages and weighted total 
 def calculate_results(questions, scores, weights=None):
     weights = normalize_weights(weights or {})
 
@@ -147,7 +151,7 @@ def calculate_results(questions, scores, weights=None):
 
     return averages, weighted_total
 
-
+# Function for processing a users answer submission 
 def process_answer(session, request, questions):
     q = questions[session["index"]]
 
@@ -164,7 +168,7 @@ def process_answer(session, request, questions):
         scale=q.get("scale")
     )
 
-    print(f"Spørsmål: {q.get('text')} | Input: {parsed_value} | Score: {score}")
+    # print(f"Spørsmål: {q.get('text')} | Input: {parsed_value} | Score: {score}")
 
     session["scores"].append({
         "id": q.get("id"),
@@ -180,7 +184,7 @@ def process_answer(session, request, questions):
 
     session["index"] += 1
 
-
+# Function to calculate and append score from extra formula questions 
 def calculate_derived(session, formulas):
     score_lookup = {e["id"]: e["score"] for e in session.get("scores", [])}
 
