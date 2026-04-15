@@ -2,15 +2,9 @@ formulas = [
     {
         "id": "drift_margin",
         "category": "economic",
-        "func": lambda scores: (scores.get("revenue", 0) - scores.get("costs", 0)) / max(scores.get("revenue", 1), 1),
-        "scale": [(0.05, float('inf'),5), (0.0,0.05,4), (-0.05,0.0,3), (-0.4,-0.05,2), (float('-inf'),-0.4,1)] 
-        # min_value < value <= max_value
-    },
-    {
-        "id": "total_margin",
-        "category": "economic",
-        "func": lambda scores: (scores.get("total_revenue", 0) - scores.get("total_costs", 0)) / max(scores.get("total_revenue", 1), 1),
-        "scale": [(0.05, float('inf'),5), (0.0,0.05,4), (-0.05,0.0,3), (-0.4,-0.05,2), (float('-inf'),-0.4,1)]
+        "func": lambda scores: (scores.get("costs", 0) - scores.get("revenue", 0)) / max(scores.get("total_area", 1), 1),
+        # "scale": [(0.001, float('inf'),1), (0.0005,0.001,2), (0.0001,0.0005,3), (0.00005,0.0001,2), (float('-inf'),0.00005,1)]
+        "scale": [(10000, float('inf'),1), (5000,10000,2), (1000,5000,3), (500,1000,2), (float('-inf'),500,1)] 
         # min_value < value <= max_value
     },
     {
