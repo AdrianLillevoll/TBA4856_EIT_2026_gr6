@@ -245,13 +245,16 @@
     ]
   },
   {
-    "text": "Skal anlegget ha Breeam sertifisering?",
+    "text": "Hva er Breeamsertifiseringen?",
     "category": "environment",
     "type": "multiple",
-    "options": ["Nei", "Ja"],
+    "options": ["Outstanding/excellent", "Very good", "Good", "Pass", "Unclassified"],
     "scoring": [
-      { "option": "Nei", "score": 0 },
-      { "option": "Ja", "score": 5 }
+      { "option": "Outstanding/excellent", "score": 5 },
+      { "option": "Very good", "score": 4 },
+      { "option": "Good", "score": 3 },
+      { "option": "Pass", "score": 2 },
+      { "option": "Unclassified", "score": 1 }
     ]
   },
   {
