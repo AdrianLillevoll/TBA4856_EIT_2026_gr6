@@ -36,22 +36,22 @@
     ]
   },
   {
-    "text": "Hvor mange ulike personer bruker anlegget per døgn?",
+    "text": "Hvor mange ulike grupper kan bruke anlegget per døgn?",
     "min": 0,
-    "max": 100000,
+    "max": 1000,
     "type": "number",
     "category": "economic",
     "scoring": [
-      { "condition": ">", "value": 1000, "score": 5 },
-      { "condition": ">", "value": 500, "score": 4 },
-      { "condition": ">", "value": 200, "score": 3 },
-      { "condition": ">", "value": 50, "score": 2},
+      { "condition": ">", "value": 30, "score": 5 },
+      { "condition": ">", "value": 20, "score": 4 },
+      { "condition": ">", "value": 10, "score": 3 },
+      { "condition": ">", "value": 5, "score": 2},
       { "condition": "else", "score": 1 }
     ]
   },
   {
     "id": "revenue",
-    "text": "Hva er driftsinntektene per år?",
+    "text": "Hva er driftsinntektene per år? (i kroner)",
     "type": "number",
     "min": 0,
     "max": 10000000000,
@@ -60,28 +60,10 @@
   },
   {
     "id": "costs",
-    "text": "Hva er driftskostnadene per år?",
+    "text": "Hva er driftskostnadene per år? (i kroner)",
     "type": "number",
     "min": 0,
     "max": 10000000000,
-    "category": "economic",
-    "ignore_from_total": true
-  },
-  {
-    "id": "total_revenue",
-    "text": "Hva er totalinntekter (inkl. sponsor og annen støtte)?",
-    "type": "number",
-    "min": 0,
-    "max": 10000000000,
-    "category": "economic",
-    "ignore_from_total": true
-  },
-  {
-    "id": "total_costs",
-    "text": "Hva er totale kostnader?",
-    "type": "number",
-    "min": 0,
-    "max": 10000000000, 
     "category": "economic",
     "ignore_from_total": true
   },
