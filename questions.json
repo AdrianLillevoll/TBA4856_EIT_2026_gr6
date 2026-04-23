@@ -14,8 +14,8 @@
     "type": "number",
     "category": "economic",
     "scoring": [
-      { "condition": ">", "value": 25, "score": 5 },
-      { "condition": ">", "value": 20, "score": 4 },
+      { "condition": ">", "value": 20, "score": 5 },
+      { "condition": ">", "value": 15, "score": 4 },
       { "condition": ">", "value": 10, "score": 3 },
       { "condition": ">", "value": 5, "score": 2},
       { "condition": "else", "score": 1 }
@@ -28,10 +28,10 @@
     "type": "number",
     "category": "economic",
     "scoring": [
-      { "condition": ">", "value": 19.2, "score": 5 },
-      { "condition": ">", "value": 14.4, "score": 4 },
-      { "condition": ">", "value": 9.6, "score": 3 },
-      { "condition": ">", "value": 4.8, "score": 2 },
+      { "condition": ">", "value": 16, "score": 5 },
+      { "condition": ">", "value": 12, "score": 4 },
+      { "condition": ">", "value": 8, "score": 3 },
+      { "condition": ">", "value": 4, "score": 2 },
       { "condition": "else", "score": 1 }
     ]
   },
@@ -193,10 +193,10 @@
     "type": "number",
     "category": "environment",
     "scoring": [
-      { "condition": ">=", "value": 6, "score": 5 },
-      { "condition": ">=", "value": 4, "score": 4 },
-      { "condition": ">=", "value": 3, "score": 3 },
-      { "condition": ">=", "value": 1, "score": 2 },
+      { "condition": ">", "value": 6, "score": 5 },
+      { "condition": ">", "value": 4, "score": 4 },
+      { "condition": ">", "value": 3, "score": 3 },
+      { "condition": ">", "value": 1, "score": 2 },
       { "condition": "else", "score": 1 }
     ],
     "source_used": "https://www.atb.no/forside/aktuelt/mange-nye-avgang-og-bedre-plass"
