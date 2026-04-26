@@ -102,4 +102,4 @@ def results():
 
 # Main method for running the app 
 if __name__ == "__main__":
-    app.run(debug=True) # Debug activated for error messages when developing 
+    app.run() # Debug activated for error messages when developing 
