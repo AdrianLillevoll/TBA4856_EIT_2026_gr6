@@ -44,4 +44,10 @@ Spørsmål {{ step }}
         </div>
     {% endif %}
 </form>
+
+<div style="margin-top: 20px; text-align: center;">
+    <a href="{{ url_for('question', reset=1) }}">
+        <button>Start på nytt</button>
+    </a>
+</div>
 {% endblock %}
